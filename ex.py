@@ -33,6 +33,19 @@ for i in range(N):
     params = [(p-g*learning_rate) for p, g in zip(params, params_grad(params, iris_data, iris_target))]
 print(f'i: {N}, loss: {loss}')
 
+def softmax(x, axis = -1):
+    unnormalized = jnp.exp(x)
+    return unnormalized / unnormalized.sum(axis, keepdims=True)
+
+#现成的softmax方法 x = jax.nn.softmax(x)
+
+def cross_entropy(y_true, y_pred):
+    y_true = jnp.array(y_true)
+    y_pred = jnp.array(y_pred)
+    res = -jnp.sum(y_true*jnp.log(y_pred + 1e-7), axis = -1)
+    return round(res, 3)
+
+
 
 
 
