@@ -61,7 +61,7 @@ for i in range(N):
     loss = loss_mlp(params, iris_data, iris_target)
     if i % 1000 ==0:
         predict_result = mlp(iris_data, params)
-        predict_class = jnp.argmax(predict_result, axis=1)
+        predict_class = jnp.argmax(predict_result, axis=1) #返回predict_result 中最大的值的序号
         # print(predict_result)
         _iris_target = jnp.argmax(iris_target, axis=1)
         accuracy = jnp.sum(predict_class == _iris_target) / (len(_iris_target))
