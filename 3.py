@@ -23,6 +23,7 @@ def manually_batched_convolve(xs, ws):
 
 def manually_vectorized_convolve(xs, ws):
     output = []
+
     for i in range(1, xs.shape[-1] -1):
         output.append(jnp.sum(xs[:,i-1:i+2] * ws, axis=1))
     return jnp.stack(output, axis=1)
