@@ -26,8 +26,9 @@ def manually_vectorized_convolve(xs, ws):
     for i in range(1, xs.shape[-1] -1):
         output.append(jnp.sum(xs[:,i-1:i+2] * ws, axis=1))
     return jnp.stack(output, axis=1)
-print(manually_vectorized_convolve(xs, ws))
-
+# print(manually_vectorized_convolve(xs, ws))
+a = [dict(t=1, obs=3), dict(t=2, obs=4)]
+print(a)
 
 
 
